@@ -1,1 +1,1 @@
-web: gunicorn helphaven.wsgi:application --log-file -
+web: gunicorn helphaven.wsgi
