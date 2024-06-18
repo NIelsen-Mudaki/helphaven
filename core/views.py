@@ -1,12 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from .forms import SignupForm
 
 def index(request):
     return render(request, 'core/index.html')
 
-
+@login_required
 def contact(request):
     return render(request, 'core/contact.html')
 
@@ -34,5 +35,6 @@ def logout_view(request):
   # Optional: Redirect to a specific page after logout
   return HttpResponseRedirect("/login/")  # Change '/login/' to your desired URL
 
+@login_required
 def services(request):
     return render(request, 'core/services.html')

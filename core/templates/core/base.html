@@ -7,6 +7,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .img{
+            height: 250px;
+            width: 300px;
+        }
+        .nav{
+            background-color: rgba(74,135,247,2);
+        }
+        .footer{
+            background-color: rgba(159,28,57,2);
+        }
+    </style>
     
     <title>{% block title %}{% endblock %} | Help Haven Services</title>
 
@@ -18,35 +31,35 @@
     <div class="container container-fluid">
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class=" nav navbar navbar-expand-lg mb-3">
             <div class="container">
                    
                 <a class="navbar-brand mx-5" href="/">Help Haven Services</a>
 
                 <div class="collapse navbar-collapse p-3 mx-5 mb-2" style="position:absolute; right:0; top:0;" id="navbarNav">
 
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav text-white">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'core:services' %}">Our Services</a>
+                            <a class="nav-link" href="{% url 'core:services' %}">Our Services</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'core:contact' %}" class="nav-link active">Contact Us</a>
+                            <a href="{% url 'core:contact' %}" class="nav-link">Contact Us</a>
                         </li>
 
                         {% if request.user.is_authenticated %}
 
                         <li class="nav-item">
-                            <a href="{% url 'core:signup' %}" class="nav-link active">Book An Appointment</a>
+                            <a href="{% url 'core:signup' %}" class="nav-link">Book An Appointment</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'core:login' %}" class="nav-link active">Chat With Us</a>
+                            <a href="{% url 'core:login' %}" class="nav-link">Chat With Us</a>
                         </li>
 
                         <li class="nav-item">
@@ -56,11 +69,11 @@
                         {% else %}
 
                         <li class="nav-item">
-                            <a href="{% url 'core:signup' %}" class="nav-link active">Sign Up</a>
+                            <a href="{% url 'core:signup' %}" class="nav-link">Sign Up</a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'core:login' %}" class="nav-link active">Log In</a>
+                            <a href="{% url 'core:login' %}" class="nav-link">Log In</a>
                         </li>
 
                         {% endif %}
@@ -80,7 +93,7 @@
             {% endblock %}
         </div>
     
-        <footer class="bg-dark text-light py-3 mt-5 mb-5">
+        <footer class=" footer text-white py-3 mt-5 mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
@@ -98,7 +111,7 @@
                         </ul>
                     </div>
                 </div>
-                <p class="mb-0 text-center">&copy; 2024 My Website</p>
+                <p class="mb-0 text-center">&copy; 2024 Help Haven Services</p>
             </div>
           </footer>
     </div>
