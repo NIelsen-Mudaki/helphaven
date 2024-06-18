@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card d-flex justify-content-center" style="width: 48rem;">
+        <div class="card-header ">
+            <h3 class="card-title">Our Services</h3>
+           
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Accommodation/Tenancy Assistance</li>
+            <li class="list-group-item">Assist Access/Maintain Employment</li>
+            <li class="list-group-item">Assistive Products for Personal Care & Safety</li>
+            <li class="list-group-item">Accommodation/Tenancy Assistance</li>
+            <li class="list-group-item">Assist Personal Activities High</li>
+            <li class="list-group-item">Assist-Life Stages, Transition and Support</li>
+            <li class="list-group-item">Assist Personal Activities</li>
+            <li class="list-group-item">Assist-Travel/Transport</li>
+            <li class="list-group-item">Community Nursing Care for High Needs</li>
+            <li class="list-group-item">Assist Daily Tasks/Shares Living</li>
+            <li class="list-group-item">Innovative Community Participation</li>
+            <li class="list-group-item">Development of Daily Living & Life Skills</li>
+            <li class="list-group-item">Household Tasks</li>
+            <li class="list-group-item">Assistive Products for Household Tasks</li>
+            <li class="list-group-item">Participation in Community, Social & CivicActivities</li>
+            <li class="list-group-item">Group/Centre-Based Activities</li>
+        </ul>
+
+        <div class="card-body "></div>
+            <a href="{% url 'core:contact' %}" class="text-center btn btn-primary">Talk to Us</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

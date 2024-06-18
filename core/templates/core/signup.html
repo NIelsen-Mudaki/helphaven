@@ -7,48 +7,60 @@
 {% block content %}
      
 <body>
-    <div class="w-1/2 my-6 mx-auto bg-gray-100 rounded-xl">
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4 col-sm-6 shadow p-3 rounded">
 
-        <h1 class="mb-6 p-6 text-3xl text-center">Sign up</h1>
+                <h2 class="text-center mb-4">Sign Up</h2>
 
-        <form method="post" action="." name="signup">
-            {% csrf_token %} 
-        
+                <form action="." method="post" name="signup">
+                    {% csrf_token %}
 
-            <div class="mb-3 p-6">
-                <label class="inline-block mb-2" for="">Username</label><br>
-                {{form.username}}
+                    {% if  form.errors or form.non_field_errors %}
+
+                        <div class="bg-danger">
+                            {% for field in form %}
+                                {{field.errors}}
+                            {% endfor %}
+
+                            {{ form.non_field_errors }}
+                        </div>
+                        
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        {{form.username}}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        {{form.email}}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        {{form.password1}}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password2" class="form-label"> Confirm Password</label>
+                        {{form.password2}}
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+
+                </form>
+
             </div>
 
-            <div class="mb-3 p-6">
-                <label class="inline-block mb-2" for="">Email</label><br>
-                {{form.email}}
-            </div>
+        </div>
 
-            <div class="mb-3 p-6">
-                <label class="inline-block mb-2" for="">Password</label><br>
-                {{form.password1}}
-            </div>
+        </div>
 
-            <div class="mb-3 p-6">
-                <label class="inline-block mb-2" for="">Confirm Password</label><br>
-                {{form.password2}}
-            </div>
-            
-            {% if  form.errors or form.non_field_errors %}
-                <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                    {% for field in form %}
-                        {{field.errors}}
-                    {% endfor %}
-
-                    {{ form.non_field_errors }}
-                </div>
-            {% endif %}
-
-            <button class="py-4 px-8 mb-2 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white text-center w-1/2 text-3xl font-semibold type="submit">Signup</button>
-        </form>
-
-    </div>
+   
 
     
     

@@ -18,7 +18,7 @@ def signup(request):
         if form.is_valid():
             form.save()
 
-            return redirect('/')
+            return redirect('/login/')
     else:   
         form = SignupForm()
 
@@ -32,4 +32,7 @@ def logout_view(request):
   """Logs out the current user and redirects to a specified page."""
   logout(request)
   # Optional: Redirect to a specific page after logout
-  return HttpResponseRedirect("/")  # Change '/login/' to your desired URL
+  return HttpResponseRedirect("/login/")  # Change '/login/' to your desired URL
+
+def services(request):
+    return render(request, 'core/services.html')
