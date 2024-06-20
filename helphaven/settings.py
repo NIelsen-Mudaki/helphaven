@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
-import django_heroku
+
 from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,8 +26,8 @@ DEBUG=config('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/login'
-LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Application definition
@@ -81,24 +80,31 @@ ASGI_APPLICATION = 'helphaven.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# development
-if config('MODE')=="dev":
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
-            'HOST': '127.0.0.1',
-            'PORT': '',   
-        }    
-    }
-    # production
-else:
-    DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL'))
-    }
+# development
+# if config('MODE')=="dev":
+
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': config('DB_NAME'),
+#             'USER': config('DB_USER'),
+#             'PASSWORD': config('DB_PASSWORD'),
+#             'HOST': config('DB_HOST'),
+#             'PORT': config('PORT'),   
+#         }    
+#     }
+#     # production
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config(default=config('DATABASE_URL'))
+#     }
 
 
 # Password validation
@@ -143,7 +149,6 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [ BASE_DIR / 'static',]
 
-django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

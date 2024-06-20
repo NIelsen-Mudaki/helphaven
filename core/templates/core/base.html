@@ -13,12 +13,9 @@
             height: 250px;
             width: 300px;
         }
-        .nav{
-            background-color: rgba(74,135,247,2);
-        }
-        .footer{
-            background-color: rgba(159,28,57,2);
-        }
+        /* .footer{
+            background-color: rgba(159,28,57,10);
+        } */
     </style>
     
     <title>{% block title %}{% endblock %} | Help Haven Services</title>
@@ -27,11 +24,14 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-image: static 'landing_image1.jpeg'">
+    
+        
+
     <div class="container container-fluid">
 
 
-        <nav class=" nav navbar navbar-expand-lg mb-3">
+        <nav class=" nav navbar bg-light navbar-expand-lg mb-3">
             <div class="container">
                    
                 <a class="navbar-brand mx-5" href="/">Help Haven Services</a>
@@ -63,7 +63,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'core:logout' %}"><button class="bg-danger text-lg p-3 font-bold rounded-xl"type='submit'>Log Out</button></a>
+                            <a href="{% url 'core:logout' %}"><button class="nav-link"type='submit'>Log Out</button></a>
                         </li>
 
                         {% else %}
@@ -93,7 +93,7 @@
             {% endblock %}
         </div>
     
-        <footer class=" footer text-white py-3 mt-5 mb-5">
+        <footer class=" footer bg-primary text-white py-3 mt-5 mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
@@ -106,8 +106,8 @@
                     <div class="col-md-4">
                     
                         <ul class="space-y-2">
-                            <li><a href="#" class="hover:text-white" >Privacy Policy</a></li>
-                            <li><a href="#" class="hover:text-white" >Terms of Use</a></li>
+                            <li><a href="#" class="text-white" >Privacy Policy</a></li>
+                            <li><a href="#" class="text-white" >Terms of Use</a></li>
                         </ul>
                     </div>
                 </div>
