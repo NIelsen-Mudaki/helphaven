@@ -21,7 +21,7 @@ from django.contrib.auth import urls
 urlpatterns = [
     path('', include('core.urls')),
     path('chat/', include('chat.urls')),
+    path('appointment/', include('appointment.urls')),
     path('auth/', include(urls)),
     path('admin/', admin.site.urls),
-    
 ]
