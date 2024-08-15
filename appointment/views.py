@@ -9,7 +9,7 @@ def home(request):
             return redirect('success')
     else:
         form = AppointmentForm()
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'appointment/home.html', {'form': form})
 
 def success(request):
-    return render(request, 'success.html', name='success')
+    return render(request, 'appointment/success.html', name='success')
